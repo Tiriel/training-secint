@@ -12,9 +12,8 @@ class BookController extends AbstractController
     #[Route('', name: 'app_book_index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/BookController.php',
+        return $this->render('movie/index.html.twig', [
+            'controller_name' => 'BookController',
         ]);
     }
 
@@ -24,9 +23,8 @@ class BookController extends AbstractController
     #[Route('/{!id<\d+>?1}', name: 'app_book_show', methods: ['GET'])]
     public function show(int $id): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller! id : '.$id,
-            'path' => 'src/Controller/BookController.php',
+        return $this->render('movie/index.html.twig', [
+            'controller_name' => 'BookController::show - id : '.$id,
         ]);
     }
 }
